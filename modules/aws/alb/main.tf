@@ -10,6 +10,10 @@ resource "terraform_data" "alb" {
   input = var.input != "" ? var.input : null # sets parameter to null if 'input' variable does not have a value
 }
 
+resource "terraform_data" "alb2" {
+  input = var.input != "" ? var.input : null # sets parameter to null if 'input' variable does not have a value
+}
+
 output "input" {
   value = var.input != "" ? var.input : null # sets output to null if 'input' variable does not have a value
 }
