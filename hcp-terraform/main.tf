@@ -44,7 +44,7 @@ resource "tfe_workspace" "onboarding_dev_us_east_1" {
   speculative_enabled   = true
   working_directory     = "account-onboarding-dev/us-east-1"
   file_triggers_enabled = true
-  trigger_patterns      = ["/account-onboarding/us-east-1/*", "/modules/asg/*"] # https://developer.hashicorp.com/terraform/cloud-docs/workspaces/settings/vcs#glob-patterns-for-automatic-run-triggering
+  trigger_patterns      = ["/account-onboarding-dev/us-east-1/*", "/modules/asg/*"] # https://developer.hashicorp.com/terraform/cloud-docs/workspaces/settings/vcs#glob-patterns-for-automatic-run-triggering
   terraform_version     = "~> 1.0"
   vcs_repo {
     identifier                 = "jweigand/terraform-monorepo-example"
