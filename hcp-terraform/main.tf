@@ -42,7 +42,7 @@ resource "tfe_workspace" "onboarding_dev_us_east_1" {
   auto_apply            = true
   queue_all_runs        = true
   speculative_enabled   = true
-  working_directory     = "account-onboarding/us-east-1"
+  working_directory     = "account-onboarding-dev/us-east-1"
   file_triggers_enabled = true
   trigger_patterns      = ["/account-onboarding/us-east-1/*", "/modules/asg/*"] # https://developer.hashicorp.com/terraform/cloud-docs/workspaces/settings/vcs#glob-patterns-for-automatic-run-triggering
   terraform_version     = "~> 1.0"
