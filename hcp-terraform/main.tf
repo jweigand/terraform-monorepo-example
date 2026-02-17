@@ -36,6 +36,7 @@ resource "tfe_project" "monorepo" {
 
 resource "tfe_workspace" "onboarding_dev_us_east_1" {
   organization          = data.tfe_organization.this.name
+  project_id            = tfe_project.monorepo.id
   name                  = "account-onboarding-dev-us-east-1"
   allow_destroy_plan    = true
   auto_apply            = true
@@ -46,13 +47,14 @@ resource "tfe_workspace" "onboarding_dev_us_east_1" {
   trigger_patterns      = ["/account-onboarding/us-east-1/*", "/modules/asg/*"] # https://developer.hashicorp.com/terraform/cloud-docs/workspaces/settings/vcs#glob-patterns-for-automatic-run-triggering
   terraform_version     = "~> 1.0"
   vcs_repo {
-    identifier                 = "jweigand/monorepo-example"
+    identifier                 = "jweigand/terraform-monorepo-example"
     github_app_installation_id = data.tfe_github_app_installation.jweigand.id
   }
 }
 
 resource "tfe_workspace" "services_dev_global" {
   organization          = data.tfe_organization.this.name
+  project_id            = tfe_project.monorepo.id
   name                  = "account-services-dev-global"
   allow_destroy_plan    = true
   auto_apply            = true
@@ -63,13 +65,14 @@ resource "tfe_workspace" "services_dev_global" {
   trigger_patterns      = ["/account-services-dev/global/*", "/modules/**/*"]
   terraform_version     = "~> 1.0"
   vcs_repo {
-    identifier                 = "jweigand/monorepo-example"
+    identifier                 = "jweigand/terraform-monorepo-example"
     github_app_installation_id = data.tfe_github_app_installation.jweigand.id
   }
 }
 
 resource "tfe_workspace" "services_dev_us_east_1" {
   organization          = data.tfe_organization.this.name
+  project_id            = tfe_project.monorepo.id
   name                  = "account-services-dev-us-east-1"
   allow_destroy_plan    = true
   auto_apply            = true
@@ -80,13 +83,14 @@ resource "tfe_workspace" "services_dev_us_east_1" {
   trigger_patterns      = ["/account-services-dev/us-east-1/*", "/modules/alb/*"]
   terraform_version     = "~> 1.0"
   vcs_repo {
-    identifier                 = "jweigand/monorepo-example"
+    identifier                 = "jweigand/terraform-monorepo-example"
     github_app_installation_id = data.tfe_github_app_installation.jweigand.id
   }
 }
 
 resource "tfe_workspace" "services_prod_global" {
   organization          = data.tfe_organization.this.name
+  project_id            = tfe_project.monorepo.id
   name                  = "account-services-prod-global"
   allow_destroy_plan    = true
   auto_apply            = true
@@ -97,13 +101,14 @@ resource "tfe_workspace" "services_prod_global" {
   trigger_patterns      = ["/account-services-prod/global/*", "/modules/**/*"]
   terraform_version     = "~> 1.0"
   vcs_repo {
-    identifier                 = "jweigand/monorepo-example"
+    identifier                 = "jweigand/terraform-monorepo-example"
     github_app_installation_id = data.tfe_github_app_installation.jweigand.id
   }
 }
 
 resource "tfe_workspace" "services_prod_us_east_1" {
   organization          = data.tfe_organization.this.name
+  project_id            = tfe_project.monorepo.id
   name                  = "account-services-prod-us-east-1"
   allow_destroy_plan    = true
   auto_apply            = true
@@ -114,7 +119,7 @@ resource "tfe_workspace" "services_prod_us_east_1" {
   trigger_patterns      = ["/account-services-prod/us-east-1/*", "/modules/redis/*"]
   terraform_version     = "~> 1.0"
   vcs_repo {
-    identifier                 = "jweigand/monorepo-example"
+    identifier                 = "jweigand/terraform-monorepo-example"
     github_app_installation_id = data.tfe_github_app_installation.jweigand.id
   }
 }
